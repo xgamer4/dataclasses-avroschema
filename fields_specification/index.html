@@ -226,18 +226,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-nav__link">
-      Avro Schema and Python Classes
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -332,6 +320,30 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-nav__link">
+      Avro Schema and Python Classes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../schema_relationships/" title="Schema Relationships" class="md-nav__link">
+      Schema Relationships
+    </a>
   </li>
 
     
@@ -529,7 +541,10 @@
 
 <p>The <code>enum</code> type is mapped to a python <code>tuple</code>.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">)</span>
 </pre></div>
@@ -551,7 +566,10 @@
 
 <p>The <code>array</code> type is mapped to a python <code>list</code>.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span>   <span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="n">cars</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
@@ -571,7 +589,10 @@
 
 <p>The <code>array</code> type is mapped to a python <code>dict</code> where all the keys should be <code>string</code>.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="n">accounts_money</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
     <span class="n">cars_brand_total</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
@@ -659,7 +680,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -668,11 +689,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Avro Schema and Python Classes
+                Introduction
               </span>
             </div>
           </a>
         
+        
+          <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Avro Schema and Python Classes
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

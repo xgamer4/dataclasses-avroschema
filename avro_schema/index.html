@@ -226,6 +226,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
+      Fields Specification
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -322,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
-      Fields Specification
+    <a href="../schema_relationships/" title="Schema Relationships" class="md-nav__link">
+      Schema Relationships
     </a>
   </li>
 
@@ -461,7 +473,7 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
 
 <h3 id="from-a-python-class-to-the-avo-schema">From a Python class to the Avo Schema</h3>
 <p>Image that you have to define the previous <code>User</code> schema but you do not know avro, you know python:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
@@ -500,7 +512,12 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
 
 <p>and that is it!! Each python field is related with a avro type. You can find the field relationships (here)[https://marcosschroh.github.io/dataclasses-avroschema/fields_specification/]:</p>
 <h3 id="enum-array-and-map-fields">Enum, Array and Map fields</h3>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+
+
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">])</span>  <span class="c1"># array field with default</span>
@@ -638,7 +655,7 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../fields_specification/" title="Fields Specification" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -647,19 +664,19 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Fields Specification
               </span>
             </div>
           </a>
         
         
-          <a href="../fields_specification/" title="Fields Specification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../schema_relationships/" title="Schema Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Fields Specification
+                Schema Relationships
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
