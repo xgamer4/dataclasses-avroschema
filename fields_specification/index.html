@@ -294,6 +294,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#unions" class="md-nav__link">
+    Unions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#records" class="md-nav__link">
     Records
   </a>
@@ -301,15 +308,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
-    Avro Field and Python Types Summary
+  <a href="#logical-types" class="md-nav__link">
+    Logical Types
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logical-types" class="md-nav__link">
-    Logical Types
+  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
+    Avro Field and Python Types Summary
   </a>
   
 </li>
@@ -428,6 +435,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#unions" class="md-nav__link">
+    Unions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#records" class="md-nav__link">
     Records
   </a>
@@ -435,15 +449,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
-    Avro Field and Python Types Summary
+  <a href="#logical-types" class="md-nav__link">
+    Logical Types
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logical-types" class="md-nav__link">
-    Logical Types
+  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
+    Avro Field and Python Types Summary
   </a>
   
 </li>
@@ -547,7 +561,37 @@
 
 
 <h2 id="complex-types">Complex Types</h2>
-<p>Avro supports six kinds of complex types: records, enums, arrays, maps, unions and fixed.</p>
+<p>Avro supports six kinds of complex types: enums, arrays, maps, unions, fixed and records.</p>
+<table>
+<thead>
+<tr>
+<th>Avro Type</th>
+<th>Python Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enums</td>
+<td>tuple</td>
+</tr>
+<tr>
+<td>arrays</td>
+<td>list</td>
+</tr>
+<tr>
+<td>maps</td>
+<td>dict</td>
+</tr>
+<tr>
+<td>unions</td>
+<td>typing.Union</td>
+</tr>
+<tr>
+<td>records</td>
+<td>Python Class</td>
+</tr>
+</tbody>
+</table>
 <h3 id="enums">Enums</h3>
 <p>Enums use the type name "enum" and support the following attributes:</p>
 <ul>
@@ -625,67 +669,32 @@
 </pre></div>
 
 
+<h3 id="unions">Unions</h3>
+<p>Unions are represented using JSON arrays. For example, <code>["null", "string"]</code> declares a schema which may be either a null or string.</p>
+<p>In this case we want to represent the <code>union</code> usign <code>typing.Union</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="k">class</span> <span class="nc">Bus</span><span class="p">:</span>
+    <span class="s2">&quot;A Bus&quot;</span>
+    <span class="n">engine_name</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="s2">&quot;A Car&quot;</span>
+    <span class="n">engine_name</span><span class="p">:</span> <span class="nb">str</span>
+
+
+ <span class="k">class</span> <span class="nc">UnionSchema</span><span class="p">:</span>
+    <span class="s2">&quot;Some Unions&quot;</span>
+    <span class="n">lake_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span>
+    <span class="n">river_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">mountain_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;engine_name&quot;</span><span class="p">:</span> <span class="s2">&quot;honda&quot;</span><span class="p">})</span>
+</pre></div>
+
+
 <h3 id="records">Records</h3>
 <p>Records use the type name "record" and will represent the "Schema".</p>
-<h3 id="avro-field-and-python-types-summary">Avro Field and Python Types Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Avro Type</th>
-<th>Python Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>str</td>
-</tr>
-<tr>
-<td>int</td>
-<td>int</td>
-</tr>
-<tr>
-<td>long</td>
-<td>int</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>bool</td>
-</tr>
-<tr>
-<td>float</td>
-<td>float</td>
-</tr>
-<tr>
-<td>null</td>
-<td>None</td>
-</tr>
-<tr>
-<td>double</td>
-<td>wip</td>
-</tr>
-<tr>
-<td>bytes</td>
-<td>wip</td>
-</tr>
-<tr>
-<td>enum</td>
-<td>tuple</td>
-</tr>
-<tr>
-<td>array</td>
-<td>list</td>
-</tr>
-<tr>
-<td>map</td>
-<td>dict</td>
-</tr>
-<tr>
-<td>record</td>
-<td>Python class</td>
-</tr>
-</tbody>
-</table>
 <h3 id="logical-types">Logical Types</h3>
 <p>A logical type is an Avro primitive or complex type with extra attributes to represent a derived type. The attribute logicalType must always be present for a logical type, and is a string with the name of one of the logical types listed later in this section. Other attributes may be defined for particular logical types.</p>
 <p>A logical type is always serialized using its underlying Avro type so that values are encoded in exactly the same way as the equivalent Avro type that does not have a logicalType attribute. Language implementations may choose to represent logical types with an appropriate native type, although this is not required.</p>
@@ -732,6 +741,93 @@
 <td>string</td>
 <td>uuid</td>
 <td>uuid.uuid4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="avro-field-and-python-types-summary">Avro Field and Python Types Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Python Type</th>
+<th>Avro Type</th>
+<th>Logical Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>str</td>
+<td>string</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>int</td>
+<td>int</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>boolean</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>float</td>
+<td>float</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>bytes</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>enum</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>list</td>
+<td>array</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>map</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>typing.Union</td>
+<td>union</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>Pythin classs</td>
+<td>record</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>datetime.date</td>
+<td>int</td>
+<td>date</td>
+</tr>
+<tr>
+<td>datetime.time</td>
+<td>int</td>
+<td>time-millis</td>
+</tr>
+<tr>
+<td>datetime.datetim</td>
+<td>long</td>
+<td>timestamp-millis</td>
+</tr>
+<tr>
+<td>uuid.uuid4</td>
+<td>string</td>
+<td>uuid</td>
 </tr>
 </tbody>
 </table>
