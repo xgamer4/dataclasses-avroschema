@@ -226,18 +226,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
-      Fields Specification
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -298,20 +286,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#enum-array-and-map-fields" class="md-nav__link">
-    Enum, Array and Map fields
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#special-avro-attributes" class="md-nav__link">
-    Special Avro attributes
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -334,8 +308,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../schema_relationships/" title="Schema Relationships" class="md-nav__link">
-      Schema Relationships
+    <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
+      Fields Specification
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../primitive_types/" title="Primitive Types" class="md-nav__link">
+      Primitive Types
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../complex_types/" title="Complex Types" class="md-nav__link">
+      Complex Types
     </a>
   </li>
 
@@ -348,6 +346,18 @@
   <li class="md-nav__item">
     <a href="../logical_types/" title="Logical Types" class="md-nav__link">
       Logical Types
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../schema_relationships/" title="Schema Relationships" class="md-nav__link">
+      Schema Relationships
     </a>
   </li>
 
@@ -402,20 +412,6 @@
           <li class="md-nav__item">
   <a href="#from-a-python-class-to-the-avo-schema" class="md-nav__link">
     From a Python class to the Avo Schema
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enum-array-and-map-fields" class="md-nav__link">
-    Enum, Array and Map fields
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#special-avro-attributes" class="md-nav__link">
-    Special Avro attributes
   </a>
   
 </li>
@@ -509,110 +505,7 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
 </pre></div>
 
 
-<p>and that is it!! Each python field is related with a avro type. You can find the field relationships (here)[https://marcosschroh.github.io/dataclasses-avroschema/fields_specification/]:</p>
-<h3 id="enum-array-and-map-fields">Enum, Array and Map fields</h3>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
-
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
-
-
-<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">])</span>  <span class="c1"># array field with default</span>
-    <span class="n">accounts</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>  <span class="c1"># map field with default</span>
-    <span class="n">has_car</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">)</span>  <span class="c1"># enum field</span>
-    <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
-    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">None</span>
-
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UserAdvance</span><span class="p">,</span> <span class="n">include_schema_doc</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
-
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;UserAdvance&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pets&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pet&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;accounts&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
-      <span class="p">},</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;has_car&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;favorite_colors&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;symbols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;favorite_color&quot;</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;address&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">],</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span><span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span><span class="s1">&#39;</span>
-</pre></div>
-
-
-<h3 id="special-avro-attributes">Special Avro attributes</h3>
-<p>There are some special avro attributes like <code>aliases</code>, <code>namespace</code> and <code>doc</code> (both not required) that can be specified in a record type.</p>
-<p>The <code>doc</code> attribute can be set via the docstring class. The <code>aliases</code> and <code>namespaces</code> must be set using the <code>extra_avro_attributes</code> static method.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
-
-
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="s2">&quot;My User Class&quot;</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">has_pets</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="n">money</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.3</span>
-
-    <span class="k">def</span> <span class="nf">extra_avro_attributes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
-        <span class="p">}</span>
-
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
-
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;has_pets&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">false</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">100.3</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;My User Class&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
-<span class="p">}</span><span class="s1">&#39;</span>
-</pre></div>
+<p>and that is it!! Each python field is related with a avro type. You can find the field relationships <a href="https://marcosschroh.github.io/dataclasses-avroschema/fields_specification/">here</a>:</p>
                 
                   
                 
@@ -633,7 +526,7 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../fields_specification/" title="Fields Specification" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -642,19 +535,19 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Fields Specification
+                Introduction
               </span>
             </div>
           </a>
         
         
-          <a href="../schema_relationships/" title="Schema Relationships" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../fields_specification/" title="Fields Specification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Schema Relationships
+                Fields Specification
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

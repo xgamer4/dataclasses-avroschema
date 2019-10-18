@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#onetoone-schema-relationship" tabindex="1" class="md-skip">
+      <a href="#schema-relationships" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -228,6 +228,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-nav__link">
+      Avro Schema and Python Classes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
       Fields Specification
     </a>
@@ -240,8 +252,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-nav__link">
-      Avro Schema and Python Classes
+    <a href="../primitive_types/" title="Primitive Types" class="md-nav__link">
+      Primitive Types
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../complex_types/" title="Complex Types" class="md-nav__link">
+      Complex Types
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logical_types/" title="Logical Types" class="md-nav__link">
+      Logical Types
     </a>
   </li>
 
@@ -275,9 +311,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#onetoone-schema-relationship" class="md-nav__link">
-    OneToOne Schema Relationship
+  <a href="#schema-relationships" class="md-nav__link">
+    Schema Relationships
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onetoone" class="md-nav__link">
+    OneToOne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -313,18 +362,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../logical_types/" title="Logical Types" class="md-nav__link">
-      Logical Types
-    </a>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -344,9 +381,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#onetoone-schema-relationship" class="md-nav__link">
-    OneToOne Schema Relationship
+  <a href="#schema-relationships" class="md-nav__link">
+    Schema Relationships
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onetoone" class="md-nav__link">
+    OneToOne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -392,7 +442,8 @@
                 
                   <h1>Schema Relationships</h1>
                 
-                <h2 id="onetoone-schema-relationship">OneToOne Schema Relationship</h2>
+                <h2 id="schema-relationships">Schema Relationships</h2>
+<h3 id="onetoone">OneToOne</h3>
 <p>An User has one Address example:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
@@ -659,7 +710,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../logical_types/" title="Logical Types" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -668,25 +719,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Avro Schema and Python Classes
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../logical_types/" title="Logical Types" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
                 Logical Types
               </span>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           </a>
+        
         
       </nav>
     </div>

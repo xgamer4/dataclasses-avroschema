@@ -38,7 +38,7 @@
     
     
       
-        <title>Fields Specification - Dataclasses Avro Schema</title>
+        <title>Primitive Types - Dataclasses Avro Schema</title>
       
     
     
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#avro-fields-and-python-fields" tabindex="1" class="md-skip">
+      <a href="#primitive-types" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Fields Specification
+                Primitive Types
               
             </span>
           
@@ -238,6 +238,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../fields_specification/" title="Fields Specification" class="md-nav__link">
+      Fields Specification
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -247,11 +259,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Fields Specification
+        Primitive Types
       </label>
     
-    <a href="./" title="Fields Specification" class="md-nav__link md-nav__link--active">
-      Fields Specification
+    <a href="./" title="Primitive Types" class="md-nav__link md-nav__link--active">
+      Primitive Types
     </a>
     
       
@@ -263,43 +275,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#avro-fields-and-python-fields" class="md-nav__link">
-    Avro Fields and Python Fields
+  <a href="#primitive-types" class="md-nav__link">
+    Primitive Types
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#primitive-types-and-python-representation" class="md-nav__link">
-    Primitive Types and python representation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complex-types" class="md-nav__link">
-    Complex Types
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logical-types" class="md-nav__link">
-    Logical Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
-    Avro Field and Python Types Summary
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -311,18 +289,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../primitive_types/" title="Primitive Types" class="md-nav__link">
-      Primitive Types
-    </a>
   </li>
 
     
@@ -381,43 +347,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#avro-fields-and-python-fields" class="md-nav__link">
-    Avro Fields and Python Fields
+  <a href="#primitive-types" class="md-nav__link">
+    Primitive Types
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#primitive-types-and-python-representation" class="md-nav__link">
-    Primitive Types and python representation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complex-types" class="md-nav__link">
-    Complex Types
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logical-types" class="md-nav__link">
-    Logical Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avro-field-and-python-types-summary" class="md-nav__link">
-    Avro Field and Python Types Summary
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -437,26 +369,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/fields_specification.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/primitive_types.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Fields Specification</h1>
+                  <h1>Primitive Types</h1>
                 
-                <h2 id="avro-fields-and-python-fields">Avro Fields and Python Fields</h2>
-<p>Apache Avro has <code>Primitive Types</code>, <code>Complex Types</code> and <code>Logical Types</code>, so we need to match these types with python types.</p>
-<h2 id="primitive-types-and-python-representation">Primitive Types and python representation</h2>
-<p>The set of primitive type names is:</p>
-<ul>
-<li>null: no value</li>
-<li>boolean: a binary value</li>
-<li>int: 32-bit signed integer</li>
-<li>long: 64-bit signed integer</li>
-<li>float: single precision (32-bit) IEEE 754 floating-point number</li>
-<li>double: double precision (64-bit) IEEE 754 floating-point number</li>
-<li>bytes: sequence of 8-bit unsigned bytes</li>
-<li>string: unicode character sequence</li>
-</ul>
-<p>So, the previous types can be matched to:</p>
+                <h2 id="primitive-types">Primitive Types</h2>
+<p>The following list represent the avro primitive types mapped to python types:</p>
 <table>
 <thead>
 <tr>
@@ -491,204 +410,129 @@
 </tr>
 </tbody>
 </table>
-<h2 id="complex-types">Complex Types</h2>
-<p>Avro supports six kinds of complex types: enums, arrays, maps, unions, fixed and records.</p>
-<table>
-<thead>
-<tr>
-<th>Avro Type</th>
-<th>Python Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enums</td>
-<td>tuple</td>
-</tr>
-<tr>
-<td>arrays</td>
-<td>list</td>
-</tr>
-<tr>
-<td>maps</td>
-<td>dict</td>
-</tr>
-<tr>
-<td>unions</td>
-<td>typing.Union</td>
-</tr>
-<tr>
-<td>records</td>
-<td>Python Class</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Enums: Use the type name "enum" and support the following attributes:</li>
-<li>name: a JSON string providing the name of the enum (required).</li>
-<li>namespace: a JSON string that qualifies the name;</li>
-<li>aliases: a JSON array of strings, providing alternate names for this enum (optional).</li>
-<li>doc: a JSON string providing documentation to the user of this schema (optional).</li>
-<li>symbols: a JSON array, listing symbols, as JSON strings (required). All symbols in an enum must be unique; duplicates are prohibited. Every symbol must match the regular expression [A-Za-z_][A-Za-z0-9_]* (the same requirement as for names).</li>
-</ul>
-<p>When we want to define a <code>enum</code> type we should specify a default value because we need to define the <code>symbols</code>
-In future version we will have a custom enum type to avoid this</p>
-<ul>
-<li>Arrays: Use the type name "array" and support the following attribute:</li>
-<li>name: a JSON string providing the name of the enum (required).</li>
-<li>
-<p>items: the schema of the array's items.</p>
-</li>
-<li>
-<p>Maps: Use the type name "map". Map keys are assumed to be string. Support the following attribute:</p>
-</li>
-<li>name: a JSON string providing the name of the enum (required).</li>
-<li>
-<p>values: the schema of the map's values.</p>
-</li>
-<li>
-<p>Unions: <code>Unions</code> are represented using JSON arrays. For example, <code>["null", "string"]</code> declares a schema which may be either a null or string.</p>
-</li>
-<li>
-<p>Records: <code>Records</code> use the type name <code>record</code> and will represent the <code>Schema</code>.</p>
-</li>
-</ul>
-<h3 id="logical-types">Logical Types</h3>
-<p>A logical type is an Avro primitive or complex type with extra attributes to represent a derived type. The attribute logicalType must always be present for a logical type, and is a string with the name of one of the logical types listed later in this section. Other attributes may be defined for particular logical types.</p>
-<p>A logical type is always serialized using its underlying Avro type so that values are encoded in exactly the same way as the equivalent Avro type that does not have a logicalType attribute. Language implementations may choose to represent logical types with an appropriate native type, although this is not required.</p>
-<p>Language implementations must ignore unknown logical types when reading, and should use the underlying Avro type. If a logical type is invalid, for example a decimal with scale greater than its precision, then implementations should ignore the logical type and use the underlying Avro type.</p>
-<ul>
-<li>
-<p>Date: The date logical type represents a date within the calendar, with no reference to a particular time zone or time of day. A date logical type annotates an Avro int, where the int stores the number of days from the unix epoch, 1 January 1970 (ISO calendar).</p>
-</li>
-<li>
-<p>Time (millisecond precision): The time-millis logical type represents a time of day, with no reference to a particular calendar, time zone or date, with a precision of one millisecond. A time-millis logical type annotates an Avro int, where the int stores the number of milliseconds after midnight, 00:00:00.000.</p>
-</li>
-<li>
-<p>Timestamp (millisecond precision): The timestamp-millis logical type represents an instant on the global timeline, independent of a particular time zone or calendar, with a precision of one millisecond. A timestamp-millis logical type annotates an Avro long, where the long stores the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC.</p>
-</li>
-<li>
-<p>UUID: Represents a uuid as a string</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Avro Type</th>
-<th>Logical Type</th>
-<th>Python Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int</td>
-<td>date</td>
-<td>datetime.date</td>
-</tr>
-<tr>
-<td>int</td>
-<td>time-millis</td>
-<td>datetime.time</td>
-</tr>
-<tr>
-<td>long</td>
-<td>timestamp-millis</td>
-<td>datetime.datetime</td>
-</tr>
-<tr>
-<td>string</td>
-<td>uuid</td>
-<td>uuid.uuid4</td>
-</tr>
-</tbody>
-</table>
-<h3 id="avro-field-and-python-types-summary">Avro Field and Python Types Summary</h3>
-<table>
-<thead>
-<tr>
-<th>Python Type</th>
-<th>Avro Type</th>
-<th>Logical Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>str</td>
-<td>string</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>int</td>
-<td>int</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>boolean</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>float</td>
-<td>float</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>None</td>
-<td>null</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>bytes</td>
-<td>bytes</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>tuple</td>
-<td>enum</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>list</td>
-<td>array</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>dict</td>
-<td>map</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>typing.Union</td>
-<td>union</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>Pythin classs</td>
-<td>record</td>
-<td>do not apply</td>
-</tr>
-<tr>
-<td>datetime.date</td>
-<td>int</td>
-<td>date</td>
-</tr>
-<tr>
-<td>datetime.time</td>
-<td>int</td>
-<td>time-millis</td>
-</tr>
-<tr>
-<td>datetime.datetim</td>
-<td>long</td>
-<td>timestamp-millis</td>
-</tr>
-<tr>
-<td>uuid.uuid4</td>
-<td>string</td>
-<td>uuid</td>
-</tr>
-</tbody>
-</table>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="s1">&#39;{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+
+
+<p>Example with defaults:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="c1"># We can see the use of null in the schema generated:</span>
+
+<span class="s1">&#39;{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;boolean&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span><span class="p">}</span>
+  <span class="p">],</span> 
+  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+
+<span class="c1"># Or with null as a second type argument:</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Juan&#39;</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.2</span>
+
+
+<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="s1">&#39;{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">100.2</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
                 
                   
                 
@@ -709,7 +553,7 @@ In future version we will have a custom enum type to avoid this</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../fields_specification/" title="Fields Specification" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -718,19 +562,19 @@ In future version we will have a custom enum type to avoid this</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Avro Schema and Python Classes
+                Fields Specification
               </span>
             </div>
           </a>
         
         
-          <a href="../primitive_types/" title="Primitive Types" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../complex_types/" title="Complex Types" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Primitive Types
+                Complex Types
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
