@@ -504,7 +504,7 @@
 </tbody>
 </table>
 <h2 id="complex-types">Complex Types</h2>
-<p>Avro supports six kinds of complex types: enums, arrays, maps, unions, fixed and records.</p>
+<p>Avro supports six kinds of complex types: enums, arrays, maps, fixed, unions and records.</p>
 <table>
 <thead>
 <tr>
@@ -524,6 +524,10 @@
 <tr>
 <td>maps</td>
 <td>dict</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>types.Fixed</td>
 </tr>
 <tr>
 <td>unions</td>
@@ -557,6 +561,15 @@ In future version we will have a custom enum type to avoid this</p>
 <li>name: a JSON string providing the name of the enum (required).</li>
 <li>
 <p>values: the schema of the map's values.</p>
+</li>
+<li>
+<p>Fixed uses the type name "fixed" and supports two attributes:</p>
+</li>
+<li>name: a string naming this fixed (required).</li>
+<li>namespace, a string that qualifies the name;</li>
+<li>aliases: a JSON array of strings, providing alternate names for this enum (optional).</li>
+<li>
+<p>size: an integer, specifying the number of bytes per value (required).</p>
 </li>
 <li>
 <p>Unions: <code>Unions</code> are represented using JSON arrays. For example, <code>["null", "string"]</code> declares a schema which may be either a null or string.</p>
@@ -687,6 +700,11 @@ In future version we will have a custom enum type to avoid this</p>
 <tr>
 <td>typing.MutableMapping</td>
 <td>map</td>
+<td>do not apply</td>
+</tr>
+<tr>
+<td>types.Fixed</td>
+<td>fixed</td>
 <td>do not apply</td>
 </tr>
 <tr>
