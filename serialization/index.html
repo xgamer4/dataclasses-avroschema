@@ -17,7 +17,7 @@
     
     
       
-        <title>Primitive Types - Dataclasses Avro Schema</title>
+        <title>Serialization - Dataclasses Avro Schema</title>
       
     
     
@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#primitive-types" class="md-skip">
+        <a href="#serialization" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Primitive Types
+              Serialization
             
           </span>
         </div>
@@ -212,49 +212,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Primitive Types
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Primitive Types" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../primitive_types/" title="Primitive Types" class="md-nav__link">
       Primitive Types
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#primitive-types" class="md-nav__link">
-    Primitive Types
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -298,11 +260,56 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../serialization/" title="Serialization" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Serialization
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Serialization" class="md-nav__link md-nav__link--active">
       Serialization
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    Serialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deserialization" class="md-nav__link">
+    Deserialization
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -342,8 +349,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#primitive-types" class="md-nav__link">
-    Primitive Types
+  <a href="#serialization" class="md-nav__link">
+    Serialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deserialization" class="md-nav__link">
+    Deserialization
   </a>
   
 </li>
@@ -360,7 +374,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/primitive_types.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/serialization.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -368,166 +382,83 @@
                   
                 
                 
-                  <h1>Primitive Types</h1>
+                  <h1>Serialization</h1>
                 
-                <h2 id="primitive-types">Primitive Types</h2>
-<p>The following list represent the avro primitive types mapped to python types:</p>
-<table>
-<thead>
-<tr>
-<th>Avro Type</th>
-<th>Python Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>str</td>
-</tr>
-<tr>
-<td>int</td>
-<td>int</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>bool</td>
-</tr>
-<tr>
-<td>float</td>
-<td>float</td>
-</tr>
-<tr>
-<td>null</td>
-<td>None</td>
-</tr>
-<tr>
-<td>bytes</td>
-<td>wip</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+                <p>Is possible to <code>serialize/deserialize</code> with the correspondent avro schema generated and the dataclass.
+In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
+<h3 id="serialization">Serialization</h3>
+<p>For serialization is neccesary to use python dataclasses instances and not just the dataclass.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Address</span><span class="p">:</span>
+    <span class="s2">&quot;An Address&quot;</span>
+    <span class="n">street</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">street_number</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="s2">&quot;An User&quot;</span>
+    <span class="s2">&quot;User with multiple Address&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span>
-    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">addresses</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Address</span><span class="p">]</span>
 
+<span class="n">address_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;street_number&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="c1"># create an Address instance</span>
+<span class="n">address</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="o">**</span><span class="n">address_data</span><span class="p">)</span>
 
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
-<span class="p">}</span><span class="s1">&#39;</span>
+<span class="n">data_user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">address</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># create an User instance</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">data_user</span><span class="p">)</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="n">schema</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span>
+<span class="c1"># &gt;&gt;&gt; b&quot;\x08john(\x02\x08test\x14\x00&quot;</span>
+
+<span class="n">schema</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; b&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
 </code></pre></div>
 
 
-<p>Example with defaults:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<h3 id="deserialization">Deserialization</h3>
+<p>Deserialization could take place with an instance dataclass or the dataclass itself</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="s2">&quot;An User&quot;</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span>
-
-
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
-
-<span class="c1"># We can see the use of null in the schema generated:</span>
-
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;boolean&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span><span class="p">}</span>
-  <span class="p">],</span> 
-  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
-<span class="p">}</span><span class="s1">&#39;</span>
-
-<span class="c1"># Or with null as a second type argument:</span>
+<span class="k">class</span> <span class="nc">Address</span><span class="p">:</span>
+    <span class="s2">&quot;An Address&quot;</span>
+    <span class="n">street</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">street_number</span><span class="p">:</span> <span class="nb">int</span>
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-    <span class="s2">&quot;An User&quot;</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Juan&#39;</span>
-    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
-    <span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">money_available</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.2</span>
+    <span class="s2">&quot;User with multiple Address&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">addresses</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Address</span><span class="p">]</span>
 
+<span class="n">avro_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x08</span><span class="s2">john(</span><span class="se">\x02\x08</span><span class="s2">test</span><span class="se">\x14\x00</span><span class="s2">&quot;</span>
+<span class="n">avro_json_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_binary</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">20</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;is_student&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;boolean&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money_available&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span>
-      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">100.2</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
-<span class="p">}</span><span class="s1">&#39;</span>
+<span class="n">schema</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 </code></pre></div>
                 
               
@@ -547,7 +478,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../fields_specification/" title="Fields Specification" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../schema_relationships/" title="Schema Relationships" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -556,19 +487,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Fields Specification
+                Schema Relationships
               </div>
             </div>
           </a>
         
         
-          <a href="../complex_types/" title="Complex Types" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faust_records/" title="Faust Records" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Complex Types
+                Faust Records
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
