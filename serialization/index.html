@@ -387,8 +387,10 @@
                 <p>Is possible to <code>serialize/deserialize</code> with the correspondent avro schema generated and the dataclass.
 In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 <h3 id="serialization">Serialization</h3>
-<p>For serialization is neccesary to use python dataclasses instances and not just the dataclass.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
+<p>For serialization is neccesary to use python class/dataclasses instance:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">import</span> <span class="nn">typing</span>
 
 <span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
@@ -429,6 +431,9 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 
 <span class="n">schema</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; b&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
+
+<span class="n">schema</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+<span class="c1"># python dict &gt;&gt;&gt; {&#39;name&#39;: &#39;john&#39;, &#39;age&#39;: 20, &#39;addresses&#39;: [{&#39;street&#39;: &#39;test&#39;, &#39;street_number&#39;: 10}]}</span>
 </code></pre></div>
 
 
