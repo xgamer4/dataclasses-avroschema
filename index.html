@@ -231,12 +231,18 @@
     Usage
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-the-avro-schema" class="md-nav__link">
+    Generating the avro schema
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -387,12 +393,18 @@
     Usage
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-the-avro-schema" class="md-nav__link">
+    Generating the avro schema
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -423,14 +435,15 @@
 <a href="https://codecov.io/gh/marcosschroh/dataclasses-avroschema"><img alt="codecov" src="https://codecov.io/gh/marcosschroh/dataclasses-avroschema/branch/master/graph/badge.svg" /></a>
 <img alt="python version" src="https://img.shields.io/badge/python-3.7%2B-yellowgreen" /></p>
 <h2 id="requirements">Requirements</h2>
-<p>python 3.7+</p>
+<p><code>python 3.7+</code></p>
 <h2 id="installation">Installation</h2>
 <div class="codehilite"><pre><span></span><code>pip install dataclasses-avroschema
 </code></pre></div>
 
 
 <h2 id="usage">Usage</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<h3 id="generating-the-avro-schema">Generating the avro schema</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
@@ -461,17 +474,6 @@
     <span class="p">]</span>
 <span class="p">}</span><span class="s1">&#39;</span>
 </code></pre></div>
-
-
-<h2 id="features">Features</h2>
-<ul>
-<li>[X] Primitive types: int, long, float, boolean, string and null support</li>
-<li>[X] Complex types: enum, array, map, fixed, unions and records support</li>
-<li>[x] Logical Types: date, time, datetime, uuid support</li>
-<li>[X] Schema relations (oneToOne, oneToMany)</li>
-<li>[X] Recursive Schemas</li>
-<li>[X] Generate Avro Schemas from <code>faust.Record</code></li>
-</ul>
                 
               
               
