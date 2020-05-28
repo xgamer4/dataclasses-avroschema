@@ -478,11 +478,11 @@
 <tbody>
 <tr>
 <td>enums</td>
-<td>typing.Tuple</td>
+<td>types.Enum</td>
 </tr>
 <tr>
 <td>arrays</td>
-<td>typing.List, typing.Sequence, typing.MutableSequence</td>
+<td>typing.List, typing.Tuple, typing.Sequence, typing.MutableSequence</td>
 </tr>
 <tr>
 <td>maps</td>
@@ -506,12 +506,12 @@
 <p>Example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span><span class="p">,</span> <span class="n">types</span>
 
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
     <span class="s2">&quot;An User&quot;</span>
-    <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">)</span>
+    <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span><span class="p">([</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">)</span>
 
 <span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
@@ -526,7 +526,8 @@
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
         <span class="s2">&quot;symbols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">],</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;favorite_color&quot;</span>
-      <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;BLUE&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span>
@@ -539,7 +540,7 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 <span class="kn">import</span> <span class="nn">dataclasses</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 
 <span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
@@ -592,7 +593,7 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 <span class="kn">import</span> <span class="nn">dataclasses</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema.schema_generator</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
 
 
 <span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
