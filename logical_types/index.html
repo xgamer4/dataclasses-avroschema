@@ -352,6 +352,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../migration_guide/" title="Migration Guide" class="md-nav__link">
+      Migration Guide
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -474,18 +486,18 @@
 <h3 id="date">Date</h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 <span class="n">a_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">DateLogicalType</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">DateLogicalType</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;Date type&quot;</span>
     <span class="n">birthday</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
     <span class="n">meeting_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">release_datetime</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">a_datetime</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">DateLogicalType</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">DateLogicalType</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -523,18 +535,18 @@
 <h3 id="time">Time</h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 <span class="n">a_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">TimeLogicalTypes</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">TimeLogicalTypes</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;Time logical types&quot;</span>
     <span class="n">birthday_time</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span>
     <span class="n">meeting_time</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">release_time</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">a_datetime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">TimeLogicalTypes</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">TimeLogicalTypes</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -572,17 +584,17 @@
 <h3 id="datetime">Datetime</h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 <span class="n">a_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">DatetimeLogicalType</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">DatetimeLogicalType</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;Datetime logical types&quot;</span>
     <span class="n">birthday</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span>
     <span class="n">meeting_time</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">release_datetime</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">a_datetime</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">DatetimeLogicalType</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">DatetimeLogicalType</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -620,16 +632,16 @@
 <h3 id="uuid">UUID</h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">uuid</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
-<span class="k">class</span> <span class="nc">UUIDLogicalTypes</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">UUIDLogicalTypes</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;UUID logical types&quot;</span>
     <span class="n">uuid_1</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span>
     <span class="n">uuid_2</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">event_uuid</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UUIDLogicalTypes</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UUIDLogicalTypes</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>

@@ -304,6 +304,19 @@
     Records
   </a>
   
+    <nav class="md-nav" aria-label="Records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-meta" class="md-nav__link">
+    Class Meta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -362,6 +375,18 @@
   <li class="md-nav__item">
     <a href="../faust_records/" title="Faust Records" class="md-nav__link">
       Faust Records
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../migration_guide/" title="Migration Guide" class="md-nav__link">
+      Migration Guide
     </a>
   </li>
 
@@ -437,6 +462,19 @@
     Records
   </a>
   
+    <nav class="md-nav" aria-label="Records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-meta" class="md-nav__link">
+    Class Meta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -506,14 +544,14 @@
 <p>Example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span><span class="p">,</span> <span class="n">types</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
 
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;An User&quot;</span>
     <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span><span class="p">([</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">)</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 
 <span class="s1">&#39;{</span>
@@ -537,20 +575,21 @@
 
 <h3 id="arrays">Arrays</h3>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">import</span> <span class="nn">dataclasses</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">dataclasses</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
-<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;User advanced&quot;</span>
     <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="n">cars</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">favourites_numbers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">])</span>
 
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UserAdvance</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UserAdvance</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -590,19 +629,20 @@
 
 <h3 id="maps">Maps</h3>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">import</span> <span class="nn">dataclasses</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">dataclasses</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
-<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;User advanced&quot;</span>
     <span class="n">accounts_money</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
     <span class="n">cars_brand_total</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">family_ages</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;father&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">})</span> 
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UserAdvance</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UserAdvance</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -643,16 +683,14 @@
 <h3 id="fixed">Fixed</h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
-
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">types</span>
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
 
 
-<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">UserAdvance</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">md5</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Fixed</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Fixed</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;md5&#39;</span><span class="p">,</span> <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;md5&quot;</span><span class="p">,</span> <span class="s2">&quot;hash&quot;</span><span class="p">])</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UnionSchema</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UnionSchema</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="p">{</span>
   <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;record&#39;</span><span class="p">,</span>
@@ -671,16 +709,16 @@
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">uuid</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
-<span class="k">class</span> <span class="nc">UnionSchema</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">UnionSchema</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;Some Unions&quot;</span>
     <span class="n">first_union</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
     <span class="n">logical_union</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">]</span>
     <span class="n">second_union</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span>
     <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">])</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UnionSchema</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UnionSchema</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="p">{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -697,24 +735,24 @@
 
 <span class="c1"># Union with Records</span>
 
-<span class="k">class</span> <span class="nc">Bus</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Bus</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;A Bus&quot;</span>
     <span class="n">engine_name</span><span class="p">:</span> <span class="nb">str</span>
 
 
-<span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;A Car&quot;</span>
     <span class="n">engine_name</span><span class="p">:</span> <span class="nb">str</span>
 
 
- <span class="k">class</span> <span class="nc">UnionSchema</span><span class="p">:</span>
+ <span class="k">class</span> <span class="nc">UnionSchema</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;Some Unions&quot;</span>
     <span class="n">lake_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span>
     <span class="n">river_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">mountain_trip</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">Bus</span><span class="p">,</span> <span class="n">Car</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span>
         <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;engine_name&quot;</span><span class="p">:</span> <span class="s2">&quot;honda&quot;</span><span class="p">})</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">UnionSchema</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">UnionSchema</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -814,23 +852,21 @@
 <p>Mapped as a Python class</p>
 <p>There are some special avro attributes like <code>aliases</code>, <code>namespace</code> and <code>doc</code> (both not required) that can be specified in a record type.</p>
 <p>The <code>doc</code> attribute can be set via the docstring class. The <code>aliases</code> and <code>namespaces</code> must be set using the <code>extra_avro_attributes</code> static method.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;My User Class&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">has_pets</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">money</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.3</span>
 
-    <span class="k">def</span> <span class="nf">extra_avro_attributes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
-        <span class="p">}</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
 
-<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+<span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
 <span class="s1">&#39;{</span>
   <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
@@ -846,6 +882,20 @@
   <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
 <span class="p">}</span><span class="s1">&#39;</span>
 </code></pre></div>
+
+
+<h4 id="class-meta">Class Meta</h4>
+<p>The <code>class Meta</code> is used to specify schema attributes that are not reprsented by the class fields like <code>namespace</code>, <code>aliases</code> and whether include the <code>schema documentation</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">schema_doc</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p><code>schema_doc (boolean)</code>: Whether include the <code>schema documentation</code> generated from <code>docstrings</code>. Default <code>True</code>
+<code>namespace (optional[str])</code>: Schema namespace. Default <code>None</code>
+<code>aliases (optional[List[str]])</code>: Schema aliases. Default <code>None</code></p>
                 
               
               

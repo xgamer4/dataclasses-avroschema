@@ -17,7 +17,7 @@
     
     
       
-        <title>Avro Schema and Python Classes - Dataclasses Avro Schema</title>
+        <title>Migration Guide - Dataclasses Avro Schema</title>
       
     
     
@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#avro-schemas-and-python-class" class="md-skip">
+        <a href="#migration-from-previous-versions-to-0140" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Avro Schema and Python Classes
+              Migration Guide
             
           </span>
         </div>
@@ -188,83 +188,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Avro Schema and Python Classes
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Avro Schema and Python Classes" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../avro_schema/" title="Avro Schema and Python Classes" class="md-nav__link">
       Avro Schema and Python Classes
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#avro-schemas-and-python-class" class="md-nav__link">
-    Avro Schemas and Python Class
-  </a>
-  
-    <nav class="md-nav" aria-label="Avro Schemas and Python Class">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-apache-avro" class="md-nav__link">
-    What is Apache Avro?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#records" class="md-nav__link">
-    Records
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#from-a-python-class-to-the-avo-schema" class="md-nav__link">
-    From a Python class to the Avo Schema
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -356,11 +284,49 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../migration_guide/" title="Migration Guide" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Migration Guide
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Migration Guide" class="md-nav__link md-nav__link--active">
       Migration Guide
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migration-from-previous-versions-to-0140" class="md-nav__link">
+    Migration from previous versions to 0.14.0
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -388,43 +354,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#avro-schemas-and-python-class" class="md-nav__link">
-    Avro Schemas and Python Class
+  <a href="#migration-from-previous-versions-to-0140" class="md-nav__link">
+    Migration from previous versions to 0.14.0
   </a>
-  
-    <nav class="md-nav" aria-label="Avro Schemas and Python Class">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-apache-avro" class="md-nav__link">
-    What is Apache Avro?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#records" class="md-nav__link">
-    Records
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#from-a-python-class-to-the-avo-schema" class="md-nav__link">
-    From a Python class to the Avo Schema
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -440,7 +372,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/avro_schema.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/migration_guide.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -448,72 +380,77 @@
                   
                 
                 
-                  <h1>Avro Schema and Python Classes</h1>
+                  <h1>Migration Guide</h1>
                 
-                <h2 id="avro-schemas-and-python-class">Avro Schemas and Python Class</h2>
-<h3 id="what-is-apache-avro">What is Apache Avro?</h3>
-<p>Avro is a row-oriented remote procedure call and data serialization framework developed within Apache's Hadoop project. It uses JSON for defining data types and protocols, and serializes data in a compact binary format. Avro uses a <code>schema</code> to structure the data that is being encoded. It has two different types of schema languages; one for human editing <code>(Avro IDL)</code> and another which is more machine-readable based on <code>(JSON)</code></p>
-<h3 id="goal">Goal</h3>
-<p>Our goal is to come up with an <code>avro schema</code> from <code>Python classes</code>.
-We can think a <code>avro Record</code> as an analogous to a <code>python class</code>, but first, let's explaine what a <code>record</code> is.</p>
-<h3 id="records">Records</h3>
-<p>Records are one of the <code>Complex Types</code> in avro. It use the type name <code>record</code> and support three attributes.</p>
-<ul>
-<li>name: a JSON string providing the name of the record (required).</li>
-<li>namespace: a JSON string that qualifies the name;</li>
-<li>doc: a JSON string providing documentation to the user of this schema (optional).</li>
-<li>aliases: a JSON array of strings, providing alternate names for this record (optional).</li>
-<li>fields: a JSON array, listing fields (required). Each field is a JSON object with the following attributes:<ul>
-<li>name: a JSON string providing the name of the field (required), and</li>
-<li>doc: a JSON string describing this field for users (optional).</li>
-<li>type: A JSON object defining a schema, or a JSON string naming a record definition (required).</li>
-<li>default: A default value for this field, used when reading instances that lack this field (optional). Permitted    values depend on the field's schema type, according to the table below. Default values for union fields correspond to the first schema in the union. Default values for bytes and fixed fields are JSON strings, where Unicode code points 0-255 are mapped to unsigned 8-bit byte values 0-255.</li>
-<li>order: specifies how this field impacts sort ordering of this record (optional). Valid values are "ascending" (the default), "descending", or "ignore". For more details on how this is used, see the the sort order section below.</li>
-<li>aliases: a JSON array of strings, providing alternate names for this field (optional).</li>
-</ul>
-</li>
-</ul>
-<p>For example, a User may be defined with:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;fields&quot;</span> <span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;has_pets&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+                <h2 id="migration-from-previous-versions-to-0140">Migration from previous versions to 0.14.0</h2>
+<p>Now all the dataclasses should inheritance from <code>AvroModel</code> and not use anymore the <code>SchemaGenerator</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Versions &lt; 0.14.0</span>
+
+<span class="kn">import</span> <span class="nn">typing</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span><span class="p">,</span> <span class="n">types</span>
 
 
-<h3 id="from-a-python-class-to-the-avo-schema">From a Python class to the Avo Schema</h3>
-<p>Image that you have to define the previous <code>User</code> schema but you do not know avro, you know python:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
-
-<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="s2">&quot;An User&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">has_pets</span><span class="p">:</span> <span class="nb">bool</span>
-    <span class="n">money</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">accounts</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span><span class="p">([</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">])</span>
+    <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="c1"># New versions</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">pets</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">accounts</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span><span class="p">([</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">])</span>
+    <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
-
-<span class="s1">&#39;{</span>
-  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;has_pets&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;money&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;User(name: str, age: int, has_pets: bool, money: float)&quot;</span>
-<span class="p">}</span><span class="s1">&#39;</span>
 </code></pre></div>
 
 
-<p>and that is it!! Each python field is related with a avro type. You can find the field relationships <a href="https://marcosschroh.github.io/dataclasses-avroschema/fields_specification/">here</a>:</p>
+<p>Another changes introduced was the way that extra avro attributes are represented, like <code>namespace</code>, <code>aliases</code> and whether to include <code>avro documentation</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="s2">&quot;My User Class&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">has_pets</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">money</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.3</span>
+
+    <span class="k">def</span> <span class="nf">extra_avro_attributes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+
+<span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">include_schema_doc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="c1"># Now is perform using a Meta class</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="s2">&quot;My User Class&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">has_pets</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">money</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.3</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">schema_doc</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;test.com.ar/user/v1&quot;</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="s2">&quot;My favorite User&quot;</span><span class="p">]</span>
+</code></pre></div>
                 
               
               
@@ -532,7 +469,7 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." title="Introduction" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../faust_records/" title="Faust Records" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -541,25 +478,11 @@ We can think a <code>avro Record</code> as an analogous to a <code>python class<
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Faust Records
               </div>
             </div>
           </a>
         
-        
-          <a href="../fields_specification/" title="Fields Specification" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Fields Specification
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

@@ -325,6 +325,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../migration_guide/" title="Migration Guide" class="md-nav__link">
+      Migration Guide
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -392,17 +404,17 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 
 <span class="kn">import</span> <span class="nn">typing</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Address</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;An Address&quot;</span>
     <span class="n">street</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">street_number</span><span class="p">:</span> <span class="nb">int</span>
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;User with multiple Address&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
@@ -424,15 +436,14 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 
 <span class="c1"># create an User instance</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">data_user</span><span class="p">)</span>
-<span class="n">schema</span> <span class="o">=</span> <span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
-<span class="n">schema</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span>
+<span class="n">user</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span>
 <span class="c1"># &gt;&gt;&gt; b&quot;\x08john(\x02\x08test\x14\x00&quot;</span>
 
-<span class="n">schema</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; b&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
 
-<span class="n">schema</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+<span class="n">user</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
 <span class="c1"># python dict &gt;&gt;&gt; {&#39;name&#39;: &#39;john&#39;, &#39;age&#39;: 20, &#39;addresses&#39;: [{&#39;street&#39;: &#39;test&#39;, &#39;street_number&#39;: 10}]}</span>
 </code></pre></div>
 
@@ -441,15 +452,15 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 <p>Deserialization could take place with an instance dataclass or the dataclass itself</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">SchemaGenerator</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
 
 
-<span class="k">class</span> <span class="nc">Address</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;An Address&quot;</span>
     <span class="n">street</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">street_number</span><span class="p">:</span> <span class="nb">int</span>
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
     <span class="s2">&quot;User with multiple Address&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
@@ -457,12 +468,11 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 
 <span class="n">avro_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x08</span><span class="s2">john(</span><span class="se">\x02\x08</span><span class="s2">test</span><span class="se">\x14\x00</span><span class="s2">&quot;</span>
 <span class="n">avro_json_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
-<span class="n">schema</span> <span class="o">=</span> <span class="n">SchemaGenerator</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
-<span class="n">schema</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_binary</span><span class="p">)</span>
+<span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_binary</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 
-<span class="n">schema</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
+<span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 </code></pre></div>
                 
