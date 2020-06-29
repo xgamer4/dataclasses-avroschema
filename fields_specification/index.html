@@ -261,6 +261,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adding-custom-field-level-attributes" class="md-nav__link">
+    Adding custom field-level attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding custom field-level attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -406,6 +426,26 @@
   <a href="#avro-field-and-python-types-summary" class="md-nav__link">
     Avro Field and Python Types Summary
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-custom-field-level-attributes" class="md-nav__link">
+    Adding custom field-level attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding custom field-level attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -725,6 +765,62 @@ In future version we will have a custom enum type to avoid this</p>
 </tr>
 </tbody>
 </table>
+<h3 id="adding-custom-field-level-attributes">Adding custom field-level attributes</h3>
+<p>You may want to add field-level attributes which are not automatically populated according to the typing semantics
+listed above. For example, you might want a <code>"doc"</code> attribute or even a custom attribute (which Avro supports as long
+as it doesn't conflict with any field names in the core Avro specification). An example of a custom attribute is a flag
+for whether a field contains sensitive data. e.g. <code>"sensitivty"</code>.</p>
+<p>When your Python class is serialised to Avro, each field will contain a number of attributes. Some of these of are common
+to all fields such as <code>"name"</code> and others are specific to the datatype (e.g. <code>array</code> will have the <code>items</code> attribute).
+In order to add custom fields, you can use the <code>field</code> descriptor of the built-in <code>dataclasses</code> package and provide a
+<code>dict</code> of key-value pairs to the <code>metadata</code> parameter as in <code>dataclasses.field(metadata={'doc': 'foo'})</code>.</p>
+<h4 id="examples">Examples</h4>
+<p>Adding a <code>doc</code> attribute to fields.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">})</span>
+
+<span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Adding an additional <code>sensitivity</code> attribute to fields.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="s2">&quot;An User&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;sensitivity&#39;</span><span class="p">:</span> <span class="s1">&#39;HIGH&#39;</span><span class="p">})</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;sensitivity&#39;</span><span class="p">:</span> <span class="s1">&#39;MEDIUM&#39;</span><span class="p">})</span>
+
+<span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;sensitivity&quot;</span><span class="p">:</span> <span class="s2">&quot;HIGH&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;sensitivity&quot;</span><span class="p">:</span> <span class="s2">&quot;MEDIUM&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
                 
               
               
