@@ -300,6 +300,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#unions-with-typingoptional" class="md-nav__link">
+    Unions with typing.Optional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#records" class="md-nav__link">
     Records
   </a>
@@ -458,6 +465,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#unions-with-typingoptional" class="md-nav__link">
+    Unions with typing.Optional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#records" class="md-nav__link">
     Records
   </a>
@@ -533,6 +547,10 @@
 <tr>
 <td>unions</td>
 <td>typing.Union</td>
+</tr>
+<tr>
+<td>unions with <code>null</code></td>
+<td>typing.Optional</td>
 </tr>
 <tr>
 <td>records</td>
@@ -844,6 +862,33 @@
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Some Unions&quot;</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+
+<h3 id="unions-with-typingoptional">Unions with typing.Optional</h3>
+<p><code>typing.Optional[Any]</code> is translated as an optional Union: <code>typing.Union[Any, NoneType]</code> where <code>NoneType</code>
+is always at the end</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+
+
+<span class="n">X</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
+
+<span class="s1">&#39;{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">},</span> <span class="s2">&quot;null&quot;</span><span class="p">]}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;X(y: Union[List[int], NoneType])&quot;</span>
 <span class="p">}</span><span class="s1">&#39;</span>
 </code></pre></div>
 
