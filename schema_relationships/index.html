@@ -503,7 +503,7 @@
     <span class="s2">&quot;User with self reference as friend&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">friend</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]</span>
+    <span class="n">friend</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
@@ -521,7 +521,8 @@
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;friend&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;User&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;null&quot;</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;User with self reference as friend&quot;</span>
@@ -636,7 +637,7 @@
     <span class="s2">&quot;User with self reference as friends&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">friends</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]]</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
@@ -659,7 +660,8 @@
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
         <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;friend&quot;</span>
-      <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;User with self reference as friends&quot;</span>
@@ -670,7 +672,7 @@
   <span class="s2">&quot;User with self reference as friends&quot;</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
   <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
-  <span class="n">friends</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]]</span>
+  <span class="n">friends</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Type</span><span class="p">[</span><span class="s2">&quot;User&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
@@ -692,7 +694,8 @@
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span>
         <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;friend&quot;</span>
-      <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;User with self reference as friends&quot;</span>

@@ -470,6 +470,10 @@
     <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
     <span class="n">address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;User.v1&quot;</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;user-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;super user&quot;</span><span class="p">]</span>
+
 
 <span class="n">User</span><span class="o">.</span><span class="n">avro_schema</span><span class="p">()</span>
 
@@ -477,6 +481,8 @@
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span>
     <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;An User&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;User.v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;user-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;super user&quot;</span><span class="p">],</span>
     <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">},</span>
