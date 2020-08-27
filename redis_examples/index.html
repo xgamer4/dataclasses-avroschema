@@ -17,7 +17,7 @@
     
     
       
-        <title>Kafka examples - Dataclasses Avro Schema</title>
+        <title>Redis examples - Dataclasses Avro Schema</title>
       
     
     
@@ -50,11 +50,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#minimal-example" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -79,7 +74,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Kafka examples
+              Redis examples
             
           </span>
         </div>
@@ -285,6 +280,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../kafka_examples/" title="Kafka examples" class="md-nav__link">
+      Kafka examples
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -293,40 +300,9 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Kafka examples
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Kafka examples" class="md-nav__link md-nav__link--active">
-      Kafka examples
+    <a href="./" title="Redis examples" class="md-nav__link md-nav__link--active">
+      Redis examples
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
-    Minimal example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -350,42 +326,12 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
-    Minimal example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/examples.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/redis_examples.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -393,16 +339,14 @@
                   
                 
                 
-                  <h1>Kafka examples</h1>
+                  <h1>Redis examples</h1>
                 
-                <p>Under <a href="https://github.com/marcosschroh/dataclasses-avroschema/tree/feat/return-instance-after-deserialization/examples">examples</a> folder you can find 3 differents examples, one with <a href="https://github.com/aio-libs/aiokafka">aiokafka</a> (<code>async</code>) showing the simplest use case when a <code>AvroModel</code> instance is serialized and sent it thorught kafka, and the event is consumed.
-The other two examples are <code>sync</code> using the <a href="https://github.com/dpkp/kafka-python">kafka-python</a> driver, where the <code>avro-json</code> serialization and <code>schema evolution</code> (<code>FULL</code> compatibility) is shown.</p>
-<h3 id="minimal-example">Minimal example</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+                <p>Minimal redis example</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="kn">from</span> <span class="nn">aiokafka</span> <span class="kn">import</span> <span class="n">AIOKafkaConsumer</span><span class="p">,</span> <span class="n">AIOKafkaProducer</span>
+<span class="kn">from</span> <span class="nn">walrus</span> <span class="kn">import</span> <span class="n">Database</span>  <span class="c1"># A subclass of the redis-py Redis client.</span>
 
 <span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span><span class="p">,</span> <span class="n">types</span>
 
@@ -415,68 +359,59 @@ The other two examples are <code>sync</code> using the <a href="https://github.c
     <span class="n">favorite_colors</span><span class="p">:</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Enum</span><span class="p">([</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">)</span>
     <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Argentina&quot;</span>
     <span class="n">address</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">testing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">namespace</span> <span class="o">=</span> <span class="s2">&quot;User.v1&quot;</span>
         <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;user-v1&quot;</span><span class="p">,</span> <span class="s2">&quot;super user&quot;</span><span class="p">]</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">consume</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">total_events</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">consumer</span> <span class="o">=</span> <span class="n">AIOKafkaConsumer</span><span class="p">(</span>
-        <span class="s1">&#39;my_topic&#39;</span><span class="p">,</span> <span class="s1">&#39;my_other_topic&#39;</span><span class="p">,</span>
-        <span class="n">loop</span><span class="o">=</span><span class="n">loop</span><span class="p">,</span> <span class="n">bootstrap_servers</span><span class="o">=</span><span class="s1">&#39;localhost:9092&#39;</span><span class="p">,</span>
-        <span class="n">group_id</span><span class="o">=</span><span class="s2">&quot;my-group&quot;</span><span class="p">)</span>
-    <span class="c1"># Get cluster layout and join group `my-group`</span>
-    <span class="k">await</span> <span class="n">consumer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">run_consumer</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">def</span> <span class="nf">consume</span><span class="p">(</span><span class="n">consumer_group</span><span class="p">):</span>
+    <span class="c1"># read new messages in the stream</span>
 
-    <span class="k">while</span> <span class="n">run_consumer</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># Consume messages</span>
-            <span class="k">async</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">consumer</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message received: </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">consumer_group</span><span class="o">.</span><span class="n">my_stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="c1"># Each record has the followinf format</span>
+        <span class="c1"># [(b&#39;1598545738231-0&#39;, {b&#39;message&#39;: b&#39;\x06KimT\x00\x12Argentina\x00\x00&#39;})]</span>
 
-                <span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message deserialized: </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-            <span class="c1"># Will leave consumer group; perform autocommit if enabled.</span>
-            <span class="k">await</span> <span class="n">consumer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stoping consumer...&quot;</span><span class="p">)</span>
-            <span class="n">run_consumer</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">message_id</span><span class="p">,</span> <span class="n">message_content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">message_id</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">message_content</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing message </span><span class="si">{</span><span class="n">message_id</span><span class="si">}</span><span class="s2"> with value </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">loop</span><span class="p">,</span> <span class="n">total_events</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">producer</span> <span class="o">=</span> <span class="n">AIOKafkaProducer</span><span class="p">(</span>
-        <span class="n">loop</span><span class="o">=</span><span class="n">loop</span><span class="p">,</span> <span class="n">bootstrap_servers</span><span class="o">=</span><span class="s1">&#39;localhost:9092&#39;</span><span class="p">)</span>
-    <span class="c1"># Get cluster layout and initial topic/partition leadership information</span>
-    <span class="k">await</span> <span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-
-    <span class="k">for</span> <span class="n">event_number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_events</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="c1"># Produce message</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending event number </span><span class="si">{</span><span class="n">event_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
+<span class="k">def</span> <span class="nf">produce</span><span class="p">(</span><span class="n">consumer_group</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="c1"># create an instance of User v1</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span>
             <span class="n">name</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Peter&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael&quot;</span><span class="p">,</span> <span class="s2">&quot;Moby&quot;</span><span class="p">,</span> <span class="s2">&quot;Kim&quot;</span><span class="p">,]),</span>
             <span class="n">age</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
         <span class="p">)</span>
 
-        <span class="c1"># create the message</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span>
+        <span class="n">msgid</span> <span class="o">=</span> <span class="n">consumer_group</span><span class="o">.</span><span class="n">my_stream</span><span class="o">.</span><span class="n">add</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">serialize</span><span class="p">()})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Producing message </span><span class="si">{</span><span class="n">msgid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">await</span> <span class="n">producer</span><span class="o">.</span><span class="n">send_and_wait</span><span class="p">(</span><span class="s2">&quot;my_topic&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
-        <span class="c1"># sleep for 2 seconds</span>
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># Wait for all pending messages to be delivered or expire.</span>
-        <span class="k">await</span> <span class="n">producer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stoping producer...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producer finished....&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">send</span><span class="p">(</span><span class="n">loop</span><span class="p">),</span> <span class="n">consume</span><span class="p">(</span><span class="n">loop</span><span class="p">))</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">Database</span><span class="p">()</span>
+    <span class="n">stream_name</span> <span class="o">=</span> <span class="s1">&#39;my-stream&#39;</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">Stream</span><span class="p">(</span><span class="n">stream_name</span><span class="p">)</span>  <span class="c1"># Create a new stream instance</span>
 
-    <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+    <span class="c1"># create the consumer group</span>
+    <span class="n">consumer_group</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">consumer_group</span><span class="p">(</span><span class="s1">&#39;my-consumer-group-1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">stream_name</span><span class="p">])</span>
+    <span class="n">consumer_group</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>  <span class="c1"># Create the consumer group.</span>
+    <span class="n">consumer_group</span><span class="o">.</span><span class="n">set_id</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">)</span>
+
+    <span class="n">produce</span><span class="p">(</span><span class="n">consumer_group</span><span class="p">)</span>
+    <span class="n">consume</span><span class="p">(</span><span class="n">consumer_group</span><span class="p">)</span>
 </code></pre></div>
                 
               
@@ -496,7 +431,7 @@ The other two examples are <code>sync</code> using the <a href="https://github.c
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../faust_records/" title="Faust Records" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../kafka_examples/" title="Kafka examples" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -505,7 +440,7 @@ The other two examples are <code>sync</code> using the <a href="https://github.c
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Faust Records
+                Kafka examples
               </div>
             </div>
           </a>
