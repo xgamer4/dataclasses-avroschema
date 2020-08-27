@@ -13,7 +13,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.18ac144a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.01afc2df.min.css">
       
       
     
@@ -44,6 +44,7 @@
   
     <body dir="ltr">
   
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -331,6 +332,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../examples/" title="Kafka examples" class="md-nav__link">
+      Kafka examples
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../migration_guide/" title="Migration Guide" class="md-nav__link">
       Migration Guide
     </a>
@@ -449,7 +462,7 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 
 
 <h3 id="deserialization">Deserialization</h3>
-<p>Deserialization could take place with an instance dataclass or the dataclass itself</p>
+<p>Deserialization could take place with an instance dataclass or the dataclass itself. Can return the dict representation or a new class instance.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
 <span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
@@ -469,10 +482,20 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 <span class="n">avro_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x08</span><span class="s2">john(</span><span class="se">\x02\x08</span><span class="s2">test</span><span class="se">\x14\x00</span><span class="s2">&quot;</span>
 <span class="n">avro_json_binary</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;{&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}&#39;</span>
 
+<span class="c1"># return a new class instance!!</span>
 <span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_binary</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt;&gt; User(name=&#39;john&#39;, age=20, addresses=[Address(street=&#39;test&#39;, street_number=10)])</span>
+
+<span class="c1"># return a python dict</span>
+<span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_binary</span><span class="p">,</span> <span class="n">create_instance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 
+<span class="c1"># return a new class instance!!</span>
 <span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt;&gt;&gt; User(name=&#39;john&#39;, age=20, addresses=[Address(street=&#39;test&#39;, street_number=10)])</span>
+
+<span class="c1"># return a python dict</span>
+<span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">,</span> <span class="n">create_instance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 </code></pre></div>
                 
@@ -541,15 +564,15 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+            worker: "../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
