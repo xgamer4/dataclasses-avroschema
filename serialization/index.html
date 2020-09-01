@@ -13,7 +13,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.11">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.01afc2df.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.860688db.min.css">
       
       
     
@@ -271,9 +271,7 @@
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Serialization
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" title="Serialization" class="md-nav__link md-nav__link--active">
@@ -286,9 +284,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -303,6 +299,13 @@
         <li class="md-nav__item">
   <a href="#deserialization" class="md-nav__link">
     Deserialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-serialization" class="md-nav__link">
+    Custom Serialization
   </a>
   
 </li>
@@ -378,9 +381,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -395,6 +396,13 @@
         <li class="md-nav__item">
   <a href="#deserialization" class="md-nav__link">
     Deserialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-serialization" class="md-nav__link">
+    Custom Serialization
   </a>
   
 </li>
@@ -510,6 +518,49 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
 <span class="n">User</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">avro_json_binary</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="s2">&quot;avro-json&quot;</span><span class="p">,</span> <span class="n">create_instance</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># &gt;&gt;&gt; {&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 20, &quot;addresses&quot;: [{&quot;street&quot;: &quot;test&quot;, &quot;street_number&quot;: 10}]}</span>
 </code></pre></div>
+
+
+<h3 id="custom-serialization">Custom Serialization</h3>
+<p>The <code>serialization/deserialization</code> process is built over <a href="https://github.com/fastavro/fastavro">fastavro</a>. If you want to use another library or a different process, you can override the base <code>AvroModel</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
+
+
+<span class="k">class</span> <span class="nc">MyAvroModel</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serialization_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">AVRO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="c1"># Get the schema as a python dict</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">avro_schema_to_python</span><span class="p">()</span>
+
+        <span class="c1"># instance as python dict</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">asdict</span><span class="p">()</span>
+
+        <span class="c1"># call your custom serialization withe the avro schema and the data</span>
+        <span class="k">return</span> <span class="n">custom_serialization</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">datam</span> <span class="n">serialization_type</span><span class="o">=</span><span class="n">serialization_type</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">serialization_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">AVRO</span><span class="p">,</span> <span class="n">create_instance</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">,</span> <span class="s2">&quot;AvroModel&quot;</span><span class="p">]:</span>
+        <span class="c1"># Get the schema as a python dict</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">avro_schema_to_python</span><span class="p">()</span>
+
+        <span class="c1"># get the python dict with the schema and the data (bytes)</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">custom_deserialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">serialization_type</span><span class="o">=</span><span class="n">serialization_type</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">create_instance</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">from_dict</span><span class="p">(</span><span class="n">data_class</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">check_types</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">payload</span>
+
+
+<span class="c1"># and then inherits from your custom AvroModel</span>
+
+<span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">MyAvroModel</span><span class="p">):</span>
+    <span class="s2">&quot;An Address&quot;</span>
+    <span class="n">street</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">street_number</span><span class="p">:</span> <span class="nb">int</span>
+</code></pre></div>
                 
               
               
@@ -584,7 +635,7 @@ In both cases we can do it with <code>avro</code> or <code>avro-json</code>.</p>
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
