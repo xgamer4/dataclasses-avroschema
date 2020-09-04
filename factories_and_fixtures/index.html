@@ -17,7 +17,7 @@
     
     
       
-        <title>Generating Fake instances - Dataclasses Avro Schema</title>
+        <title>Factory and fixtures - Dataclasses Avro Schema</title>
       
     
     
@@ -74,7 +74,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Generating Fake instances
+              Factory and fixtures
             
           </span>
         </div>
@@ -312,8 +312,8 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="./" title="Generating Fake instances" class="md-nav__link md-nav__link--active">
-      Generating Fake instances
+    <a href="./" title="Factory and fixtures" class="md-nav__link md-nav__link--active">
+      Factory and fixtures
     </a>
     
   </li>
@@ -343,7 +343,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/fake_instances_and_testing.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/marcosschroh/dataclasses-avroschema/edit/master/docs/factories_and_fixtures.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -351,9 +351,9 @@
                   
                 
                 
-                  <h1>Generating Fake instances</h1>
+                  <h1>Factory and fixtures</h1>
                 
-                <p>With <code>dataclasses-avroschema</code> you can generate <code>fake</code> instances when you want to perform fast testing or maybe you want to do <code>e2e</code> tests in your data streaming pipelines. Fake instances can be genrated calling the <code>fake</code> method.</p>
+                <p><a href="https://github.com/marcosschroh/dataclasses-avroschema">Dataclasses Avro Schema</a> also includes a <code>factory</code> feature, so you can generate <code>fast</code> python instances and use them, for example, to test your data streaming pipelines. Instances can be genrated using the <code>fake</code> method.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span>
 
 <span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
