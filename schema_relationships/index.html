@@ -318,6 +318,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#avoid-name-colision-in-multiple-relationships" class="md-nav__link">
+    Avoid name colision in multiple relationships
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -459,6 +466,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#avoid-name-colision-in-multiple-relationships" class="md-nav__link">
+    Avoid name colision in multiple relationships
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -593,7 +607,7 @@
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
         <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;address_record&quot;</span><span class="p">,</span>
           <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;street&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
             <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;street_number&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">}</span>
@@ -641,7 +655,7 @@
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span>
         <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;address_record&quot;</span><span class="p">,</span>
           <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;street&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
             <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;street_number&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">}</span>
@@ -730,6 +744,104 @@
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;User with self reference as friends&quot;</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+
+<h2 id="avoid-name-colision-in-multiple-relationships">Avoid name colision in multiple relationships</h2>
+<p>Sometimes we have relationships where a class is related more than once with a particular class,
+and the name for the nested schemas must be diferent, otherwise we will generate an invalid <code>avro schema</code>.</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses_avroschema</span> <span class="kn">import</span> <span class="n">AvroModel</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Trip</span><span class="p">(</span><span class="n">AvroModel</span><span class="p">):</span>
+    <span class="n">start_time</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">start_location</span><span class="p">:</span> <span class="n">Location</span>  <span class="c1"># first relationship</span>
+    <span class="n">finish_time</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">finish_location</span><span class="p">:</span> <span class="n">Location</span>  <span class="c1"># second relationship</span>
+</code></pre></div>
+
+
+<p>In order to avoid name colisions, the nested name is generated in the following way:</p>
+<ol>
+<li>Get the lower name of the related class</li>
+<li>Get the field name</li>
+<li>Is (1) included in (2)?
+   then: (2)<em>record as result
+   otherwise: (1)</em>(2)_record</li>
+</ol>
+<p>Example for start_location:</p>
+<ol>
+<li>Get the lower name of the related class = <code>location</code></li>
+<li>Get the field name = <code>start_location</code></li>
+<li>Is <code>location</code> included in <code>start_location</code>? yes, so the result is <code>start_location_record</code></li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="s1">&#39;{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Trip&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start_time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="s2">&quot;logicalType&quot;</span><span class="p">:</span> <span class="s2">&quot;timestamp-millis&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start_location&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start_location_record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+           <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Location(latitude: float, longitude: float)&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;finish_time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="s2">&quot;logicalType&quot;</span><span class="p">:</span> <span class="s2">&quot;timestamp-millis&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;finish_location&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;finish_location_record&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Location(latitude: float, longitude: float)&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="s2">&quot;Trip(start_time: datetime.datetime, start_location: __main__.Location, finish_time: datetime.datetime, finish_location: __main__.Location)&quot;</span>
 <span class="p">}</span><span class="s1">&#39;</span>
 </code></pre></div>
                 
